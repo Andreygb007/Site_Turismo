@@ -27,6 +27,10 @@ main {
   flex: 1;
 }
 
+.contato{
+  text-align: center;
+}
+
 .social-container {
   display: flex;
   justify-content: center;
@@ -251,6 +255,283 @@ footer p {
   font-size: 0.95rem;
 }
 
+/* SEÇÃO DE VÍDEOS - CHAPADA DIAMANTINA */
+.videos-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #1a3d5d 0%, #2e8b57 100%);
+  text-align: center;
+  color: white;
+}
+
+.videos-section h2 {
+  font-size: 2.8rem;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.videos-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: #2ecc71;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Carrossel de Vídeos - CSS Puro */
+.video-carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Esconder os inputs radio */
+.carousel-container input[type="radio"] {
+  display: none;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 300%; /* 3 slides = 300% */
+}
+
+.carousel-item {
+  width: 33.333%; /* Cada slide ocupa 1/3 do container */
+  flex-shrink: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Lógica do carrossel com CSS */
+#slide-1:checked ~ .carousel-inner {
+  transform: translateX(0%);
+}
+
+#slide-2:checked ~ .carousel-inner {
+  transform: translateX(-33.333%);
+}
+
+#slide-3:checked ~ .carousel-inner {
+  transform: translateX(-66.666%);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-caption {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+}
+
+.video-caption h3 {
+  color: #1a3d5d;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-caption p {
+  color: #555;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Controles de Navegação */
+.carousel-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.control-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+#slide-1:checked ~ .carousel-controls .control-btn:nth-child(1),
+#slide-2:checked ~ .carousel-controls .control-btn:nth-child(2),
+#slide-3:checked ~ .carousel-controls .control-btn:nth-child(3) {
+  background: #2ecc71;
+  transform: scale(1.2);
+  border-color: white;
+}
+
+.control-btn:hover {
+  background: rgba(46, 204, 113, 0.8);
+  transform: scale(1.1);
+}
+
+/* Setas de Navegação */
+.navigation-arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: #1a3d5d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.arrow:hover {
+  background: white;
+  color: #2ecc71;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transform: scale(1.1);
+}
+
+/* PÁGINA DE CONTATO MELHORADA */
+.contato {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: 
+    linear-gradient(135deg, rgba(26, 61, 93, 0.95) 0%, rgba(46, 139, 87, 0.85) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%232e8b57" fill-opacity="0.05" points="0,1000 1000,0 1000,1000"/><circle fill="%231a3d5d" fill-opacity="0.03" cx="200" cy="200" r="150"/><circle fill="%232e8b57" fill-opacity="0.04" cx="800" cy="800" r="200"/></svg>'),
+    radial-gradient(circle at 20% 80%, #1a3d5d 0%, #2e8b57 100%);
+  background-size: cover, cover, cover;
+  background-attachment: fixed;
+  color: white;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contato::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(46, 204, 113, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(26, 61, 93, 0.1) 0%, transparent 50%);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.02); }
+}
+
+.contato h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.contato h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #2ecc71, transparent);
+  border-radius: 2px;
+}
+
+/* Informações de contato adicionais */
+.contato-info {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.contato-info p {
+  margin: 1.2rem 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
   .hero {
@@ -269,6 +550,74 @@ footer p {
     min-width: 100%;
     max-width: 100%;
   }
+
+  /* Responsividade do Carrossel */
+  .videos-section {
+    padding: 3rem 1rem;
+  }
+  
+  .videos-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .video-carousel {
+    margin: 0 0.5rem;
+  }
+  
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .navigation-arrows {
+    padding: 0 10px;
+  }
+  
+  .video-caption {
+    padding: 1rem;
+  }
+  
+  .video-caption h3 {
+    font-size: 1.2rem;
+  }
+
+  .contato {
+    padding: 4rem 1rem;
+    min-height: 70vh;
+  }
+  
+  .contato h2 {
+    font-size: 2.2rem;
+  }
+  
+  .social-container {
+    gap: 1.5rem;
+  }
+  
+  .social-container a {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .social-container img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .contato-info {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+  
+  .contato-info p {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -284,5 +633,46 @@ footer p {
 
   .hero p {
     font-size: 0.95rem;
+  }
+  
+  .videos-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .carousel-controls {
+    bottom: 10px;
+  }
+  
+  .control-btn {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .contato h2 {
+    font-size: 1.8rem;
+  }
+  
+  .social-container {
+    gap: 1rem;
+  }
+  
+  .social-container a {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .social-container img {
+    width: 30px;
+    height: 30px;
   }
 }
